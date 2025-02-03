@@ -33,13 +33,13 @@ img{
     font-weight: 600;
     font-size: 2rem;
 }
-.container1 .card .content .btns{
+.container1 .card .content .btons{
     display: flex;
     flex-direction: row;
 }
 button{
     margin: 5px;
     padding: 6px;
-    border-radius: 8px;
+    border-radius:  8px;
     background: #0d1118;
 }

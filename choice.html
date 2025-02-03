@@ -34,14 +34,17 @@
     </div>
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <div class="container1">
+        <div class="container1" id="contai">
             <div class="card">
+
+            </div>
+            <!-- <div class="card">
                 <div class="image">
                     <img src="./assets/icons/html.png">
                 </div>
                 <div class="content">
                     <h1 id="heading">Html</h1>
-                    <div class="btns">
+                    <div class="btons">
                         <button onclick="">Reading Material ></button>
                         <button onclick="">Interview Q/A ></button>
                         <button onclick="">Practice Test ></button>
@@ -55,14 +58,14 @@
                 </div>
                 <div class="content">
                     <h1 id="heading">CSS</h1>
-                    <div class="btns">
+                    <div class="btons">
                         <button onclick="">Reading Material ></button>
                         <button onclick="">Interview Q/A ></button>
                         <button onclick="">Practice Test ></button>
                         <button onclick="">Tasks ></button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </main>
     
@@ -73,16 +76,50 @@
             }
         
             document.addEventListener("DOMContentLoaded", () => {
-                const subject = getQueryParam("subject");
-                if (subject) {
-                    document.getElementById("subject-title").innerText = subject;
-                    // You can modify this to load relevant content
+                const type = getQueryParam("type");
+        
+                const container = document.querySelector(".container1");
+                container.innerHTML = ""; // Clear existing content
+        
+                let subjects = [];
+        
+                if (type === "web-dev") {
+                    subjects = [
+                        { name: "HTML", img: "./assets/icons/html5.svg" },
+                        { name: "CSS", img: "./assets/icons/css3.svg" },
+                        { name: "JavaScript", img: "./assets/icons/javascript.svg" }
+                    ];
+                } else if (type === "backend") {
+                    subjects = [
+                        { name: "Node.js", img: "./assets/icons/node.png" },
+                        { name: "Python", img: "./assets/icons/python.png" },
+                        { name: "SQL", img: "./assets/icons/sql.png" }
+                    ];
                 }
+                // document.getElementById(".contai").textContent= type;
+                subjects.forEach(subject => {
+                    const card = document.createElement("div");
+                    card.className = "card";
+                    card.innerHTML = `
+                        <div class="image">
+                            <img src="${subject.img}">
+                        </div>
+                        <div class="content">
+                            <h1>${subject.name}</h1>
+                            <div class="btons">
+                                <button onclick="navigateToPage('${subject.name}')">Reading Material</button>
+                                <button onclick="navigateToPage('${subject.name}')">Interview Q/A</button>
+                                <button onclick="navigateToPage('${subject.name}')">Practice Test</button>
+                                <button onclick="navigateToPage('${subject.name}')">Tasks</button>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
             });
-            function navigateToPage(){
-                const subject = getQueryParam("subject");
+        
+            function navigateToPage(subject) {
                 window.location.href = `readingPaper.html?subject=${subject}`;
-
             }
         </script>
         
