@@ -48,15 +48,17 @@
                 <div class="bg-[#0F172A] rounded-xl p-8">
                     <h2 class="text-2xl font-bold mb-8 text-dojo-accent">Foundations of Web Development</h2>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item">
+                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item" onclick="navigateToChoice('html')">
                             <img src="assets/icons/html5.svg" alt="HTML" class="w-16 h-16 mx-auto mb-4">
                             <h3 class="text-center font-medium">HTML</h3>
                         </div>
-                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item">
+                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item cursor-pointer" 
+                        onclick="navigateToChoice('css')">
                             <img src="assets/icons/css3.svg" alt="CSS" class="w-16 h-16 mx-auto mb-4">
-                            <h3 class="text-center font-medium">CSS</h3>
+                            <h3 class="text-center font-medium text-white">CSS</h3>
                         </div>
-                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item col-span-2">
+
+                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item col-span-2" onclick="navigateToChoice('javascript')">
                             <img src="assets/icons/javascript.svg" alt="JavaScript" class="w-16 h-16 mx-auto mb-4">
                             <h3 class="text-center font-medium">JavaScript</h3>
                         </div>
@@ -69,11 +71,11 @@
                 <div class="bg-[#0F172A] rounded-xl p-8">
                     <h2 class="text-2xl font-bold mb-8 text-dojo-accent">Backend Development with JS</h2>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item">
+                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item" onclick="navigateToChoice('node_js')">
                             <img src="assets/icons/nodejs.svg" alt="Node.js" class="w-16 h-16 mx-auto mb-4">
                             <h3 class="text-center font-medium">Node.js</h3>
                         </div>
-                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item">
+                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item" onclick="navigateToChoice('Express JS')">
                             <img src="assets/icons/express.svg" alt="Express.js" class="w-16 h-16 mx-auto mb-4 invert">
                             <h3 class="text-center font-medium">Express.js</h3>
                         </div>
@@ -86,11 +88,11 @@
                 <div class="bg-[#0F172A] rounded-xl p-8">
                     <h2 class="text-2xl font-bold mb-8 text-dojo-accent">Frontend Development with JS</h2>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item">
+                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item" onclick="window.location.href='choice.html';">
                             <img src="assets/icons/react.svg" alt="React" class="w-16 h-16 mx-auto mb-4">
                             <h3 class="text-center font-medium">React</h3>
                         </div>
-                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item">
+                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item" onclick="window.location.href='choice.html';">
                             <img src="assets/icons/tailwind.svg" alt="Tailwind" class="w-16 h-16 mx-auto mb-4">
                             <h3 class="text-center font-medium">Tailwind CSS</h3>
                         </div>
@@ -103,7 +105,7 @@
                 <div class="bg-[#0F172A] rounded-xl p-8">
                     <h2 class="text-2xl font-bold mb-8 text-dojo-accent">DevSecOps and Deployment</h2>
                     <div class="grid grid-cols-3 gap-4">
-                        <div class="bg-[#1E293B] p-4 rounded-lg tech-item">
+                        <div class="bg-[#1E293B] p-4 rounded-lg tech-item" >
                             <img src="assets/icons/git.svg" alt="Git" class="w-12 h-12 mx-auto mb-3">
                             <h3 class="text-center font-medium text-sm">Git</h3>
                         </div>
@@ -181,5 +183,11 @@
     <footer class="py-8 px-4 text-center text-gray-400 border-t border-gray-800">
         <p>&copy; 2025 PracticeDojo. All rights reserved.</p>
     </footer>
+    <script>
+        function navigateToChoice(subject) {
+    window.location.href = `choice.html?subject=${encodeURIComponent(subject)}`;
+}
+
+    </script>
 </body>
 </html>

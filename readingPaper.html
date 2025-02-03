@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="subject-title">
+        
+    </div>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            const subject = getQueryParam("subject");
+            if (subject) {
+                document.getElementById("subject-title").innerText = subject;
+                // You can modify this to load relevant content
+            }
+        });
+        function navigateToPage(){
+            const subject = getQueryParam("subject");
+            window.location.href = `readingPaper.html?subject=${subject}`;
+
+        }
+
+        async function fetchData() {
+            try {
+                const subject = getQueryParam("subject");
+                const response = await fetch(`${subject}.json`); // Fetch JSON file
+                const data = await response.json(); // Convert to JSON
+
+                const list = document.getElementById('subject-list');
+                data.subjects.forEach(subject => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${subject.name}: ${subject.description}`;
+                    list.appendChild(listItem);
+                });
+
+            } catch (error) {
+                console.error("Error fetching JSON data:", error);
+            }
+        }
+
+        fetchData(); 
+
+
+    </script>
+</body>
+</html>
+
+
+

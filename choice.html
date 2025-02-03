@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose...</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dojo-dark': '#020817',
+                        'dojo-card': '#0F172A',
+                        'dojo-accent': '#38BDF8',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-[#020817] text-gray-100 min-h-screen">
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex justify-center items-center min-h-screen">
+            <!-- Web Development Foundations -->
+            <div class="tech-card " >
+                <div class="bg-[#0F172A] rounded-xl p-8 ">
+                    
+                    <h2 class="text-2xl font-bold mb-8 text-dojo-accent" id="subject-title">Select By your Own</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-[#1E293B] p-6 rounded-lg tech-item cursor-pointer" 
+                        onclick="navigateToPage()">
+                       <img src="assets/icons/open-book2.png" alt="Reading" class="w-16 h-16 mx-auto mb-4">
+                       <h3 class="text-center font-medium">Reading Material</h3>
+                   </div>
+                   
+                   <div class="bg-[#1E293B] p-6 rounded-lg tech-item cursor-pointer" 
+                        onclick="navigateToPage()">
+                       <img src="assets/icons/test2.png" alt="Practice Test" class="w-16 h-16 mx-auto mb-4">
+                       <h3 class="text-center font-medium">Practice Test</h3>
+                   </div>
+                   
+                        
+                    </div>
+                </div>
+            </div>
+
+         
+            
+        </div>
+        </main>
+        <script>
+            function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+        
+            document.addEventListener("DOMContentLoaded", () => {
+                const subject = getQueryParam("subject");
+                if (subject) {
+                    document.getElementById("subject-title").innerText = subject;
+                    // You can modify this to load relevant content
+                }
+            });
+            function navigateToPage(){
+                const subject = getQueryParam("subject");
+                window.location.href = `readingPaper.html?subject=${subject}`;
+
+            }
+        </script>
+        
+       
+        
+</body>
+</html>
